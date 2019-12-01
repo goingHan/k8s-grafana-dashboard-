@@ -1,0 +1,554 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 30,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=~\"calico.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=~\"calico.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=~\"calico.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "calico实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=~\"coredns.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=~\"coredns.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=~\"coredns.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Coredns实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "id": 5,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=~\"metrics-server.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=~\"metrics-server.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=~\"metrics-server.*\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Metrics-server实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 6,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=~\"grafana.*\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=~\"grafana.*\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=~\"grafana.*\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Grafana实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=\"alertmanager\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=\"alertmanager\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=\"alertmanager\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Alertmanager实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 7,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=\"prometheus\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=\"prometheus\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=\"prometheus\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Prometheus Server实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "id": 8,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=\"node-exporter\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=\"node-exporter\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=\"node-exporter\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Node-exporter实例的健康状况",
+      "type": "bargauge"
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 9,
+      "links": [],
+      "options": {
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "last"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal"
+      },
+      "targets": [
+        {
+          "expr": "count(kube_pod_container_info{container=\"prometheus-operator\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "总个数",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_terminated{container=\"prometheus-operator\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "terminated",
+          "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_status_waiting{container=\"prometheus-operator\", namespace=\"monitoring\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "waiting",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Prometheus-Operator实例的健康状况",
+      "type": "bargauge"
+    }
+  ],
+  "schemaVersion": 18,
+  "style": "dark",
+  "tags": [
+    "helm",
+    "dns",
+    "calico",
+    "metrics-server"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "插件",
+  "uid": "AB8N6bbZk",
+  "version": 6
+}
